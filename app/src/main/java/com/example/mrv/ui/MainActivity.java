@@ -8,7 +8,6 @@ import android.os.Bundle;
 import com.example.mrv.R;
 import com.example.mrv.adapters.ContactsIconRecyclerViewAdapter;
 import com.example.mrv.adapters.ContactsRecyclerViewAdapter;
-import com.example.mrv.pojo.ContactsIconModel;
 import com.example.mrv.pojo.ContactsModel;
 
 import java.util.ArrayList;
@@ -41,7 +40,13 @@ public class MainActivity extends AppCompatActivity {
         List<ContactsModel> contacts = new ArrayList<>();
 
         for (int i = 1; i <= 50; i++) {
-            contacts.add(new ContactsModel("UserName" + i, i % 3 == 0 ? "Online" : "Offline", R.drawable.user));
+            contacts.add(new ContactsModel("UserName" + i, i % 3 == 0 ? "Online" : "Offline", R.drawable.one));
+            contacts.add(new ContactsModel("UserName" + i, i % 3 == 0 ? "Online" : "Offline", R.drawable.two));
+            contacts.add(new ContactsModel("UserName" + i, i % 3 == 0 ? "Online" : "Offline", R.drawable.three));
+            contacts.add(new ContactsModel("UserName" + i, i % 3 == 0 ? "Online" : "Offline", R.drawable.four));
+            contacts.add(new ContactsModel("UserName" + i, i % 3 == 0 ? "Online" : "Offline", R.drawable.five));
+            contacts.add(new ContactsModel("UserName" + i, i % 3 == 0 ? "Online" : "Offline", R.drawable.six));
+            contacts.add(new ContactsModel("UserName" + i, i % 3 == 0 ? "Online" : "Offline", R.drawable.seven));
         }
 
         return contacts;
