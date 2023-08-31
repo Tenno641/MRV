@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         contactsAdapter = new ContactsRecyclerViewAdapter(setContacts());
-        iconsAdapter = new ContactsIconRecyclerViewAdapter(setContactsIcon());
+        iconsAdapter = new ContactsIconRecyclerViewAdapter(setContacts());
 
         contactsRV = findViewById(R.id.contactRV);
         iconsRV = findViewById(R.id.iconRV);
@@ -37,21 +37,11 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    protected List<ContactsIconModel> setContactsIcon() {
-        List<ContactsIconModel> icons  = new ArrayList<>();
-
-        for (int i = 1; i <= 50; i++) {
-            icons.add(new ContactsIconModel(R.drawable.user));
-        }
-
-        return icons;
-    }
-
     protected List<ContactsModel> setContacts() {
         List<ContactsModel> contacts = new ArrayList<>();
 
         for (int i = 1; i <= 50; i++) {
-            contacts.add(new ContactsModel(R.drawable.user, "UserName" + i, i % 3 == 0 ? "Online" : "Offline"));
+            contacts.add(new ContactsModel("UserName" + i, i % 3 == 0 ? "Online" : "Offline", R.drawable.user));
         }
 
         return contacts;

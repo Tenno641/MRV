@@ -5,7 +5,12 @@ public class ContactsModel {
     private final String name;
     private final String state;
     private final int image;
-    private final int stateIcon;
+
+    public ContactsModel(String name, String state, int image) {
+        this.name = name;
+        this.state = state;
+        this.image = image;
+    }
 
     public String getName() {
         return name;
@@ -19,14 +24,4 @@ public class ContactsModel {
         return image;
     }
 
-    public int getStateIcon() {
-        return stateIcon;
-    }
-
-    public ContactsModel(String name, String state, int image, int stateIcon) {
-        this.name = name;
-        this.state = state;
-        this.image = image;
-        this.stateIcon = stateIcon;
-    }
 }

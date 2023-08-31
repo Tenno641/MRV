@@ -1,23 +1,25 @@
 package com.example.mrv.adapters;
 
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.mrv.R;
-import com.example.mrv.pojo.ContactsIconModel;
+import com.example.mrv.pojo.ContactsModel;
 
 import java.util.List;
 
 public class ContactsIconRecyclerViewAdapter extends RecyclerView.Adapter<ContactsIconRecyclerViewAdapter.ViewHolder> {
 
-    List<ContactsIconModel> icons;
+    List<ContactsModel> icons;
 
-    public ContactsIconRecyclerViewAdapter(List<ContactsIconModel> icons) {
+    public ContactsIconRecyclerViewAdapter(List<ContactsModel> icons) {
         this.icons = icons;
     }
 
@@ -30,8 +32,13 @@ public class ContactsIconRecyclerViewAdapter extends RecyclerView.Adapter<Contac
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        ContactsIconModel iconModel = icons.get(position);
-        holder.icon.setImageResource(iconModel.getImage());
+        ContactsModel contact = icons.get(position);
+        holder.icon.setImageResource(contact.getImage());
+        if (contact.getState().equals("Offline")) {
+            holder.stateIcon.setCardBackgroundColor(Color.RED);
+        } else {
+            holder.stateIcon.setCardBackgroundColor(Color.GREEN);
+        }
     }
 
     @Override
@@ -42,10 +49,12 @@ public class ContactsIconRecyclerViewAdapter extends RecyclerView.Adapter<Contac
     public static class ViewHolder extends RecyclerView.ViewHolder {
 
         ImageView icon;
+        CardView stateIcon;
 
         public ViewHolder(View itemView) {
             super(itemView);
             icon = itemView.findViewById(R.id.userIcon);
+            stateIcon = itemView.findViewById(R.id.stateIcon);
         }
     }
 
