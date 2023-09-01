@@ -14,7 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="6dp"
-        android:hint="Search"
+        android:hint="@string/search"
         android:textColor="@color/black"
         app:endIconDrawable="@drawable/ic_baseline_search_24"
         app:endIconMode="custom"
